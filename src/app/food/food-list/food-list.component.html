@@ -1,0 +1,11 @@
+<ul class="food-list">
+  <li
+    class="food-list__link"
+    *ngFor="let food of foods"
+    [routerLink]="['/food', food.id]">
+    <div class="food-list__title">
+      <h4>{{ food.name }}</h4>
+    </div>
+    <img [attr.src]="food.imageURL" alt="{{ food.name }}" />
+  </li>
+</ul>

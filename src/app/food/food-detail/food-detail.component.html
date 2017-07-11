@@ -1,0 +1,18 @@
+<h2>{{ foodDetail.name }}</h2>
+<img [attr.src]="foodDetail.imageURL" alt='foodDetail.name' />
+<p>{{ foodDetail.description }}</p>
+<hr/>
+<h4> Bahan yang perlu disiapkan </h4>
+<ol>
+  <li
+    *ngFor="let recipe of foodDetail.recipe" >
+    {{ recipe.name }} {{ recipe.amount }} {{ recipe.measure }}
+  </li>
+</ol>
+<h4> Langkah memasak </h4>
+<ol>
+  <li
+    *ngFor="let step of foodDetail.step" >
+    {{ step.description }}
+  </li>
+</ol>

@@ -1,0 +1,76 @@
+  <div class="form-group">
+    <label for="formGroupExampleInput">Nama Masakan</label>
+    <input type="text" class="form-control" [(ngModel)]="foodName" id="formGroupExampleInput" placeholder="Nama masakanmu">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput">Deskripsi Singkat</label>
+    <input type="text" class="form-control" [(ngModel)]="foodDescription" id="formGroupExampleInput" placeholder="Deskripsi masakanmu">
+  </div>
+  <div class="form-group row">
+    <div class="col-md-8">
+    <label for="formGroupExampleInput2">URL Gambar</label>
+    <input type="text" class="form-control" [(ngModel)]="foodURL" placeholder="cth: http://webmu.com/gbrmasakan.jpg">
+    </div>
+    <div class="col-md-4">
+      <img class="food-image-preview"[attr.src]=' foodURL ' [attr.alt]='foodName' />
+    </div>
+  </div>
+<br/>
+<hr>
+<br/>
+<h5>Bahan Yang Disiapkan</h5>
+<br/>
+<div class="form-inline">
+  <label class="sr-only" for="inlineFormInput">Nama Bahan</label>
+  <input required minlength="4" type="text" [(ngModel)]="therecipeName" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Nama bahan" #recipeName="ngModel">
+
+  <label class="sr-only" for="inlineFormInput">Jumlah</label>
+  <input required minlength="4" type="number" [(ngModel)]="therecipeAmount" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Jumlah" #recipeAmount="ngModel">
+
+  <label class="sr-only" for="inlineFormInput">Satuan</label>
+  <input required minlength="4" type="text" [(ngModel)]="therecipeMeasure" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Satuan (sdm , kg dsb)" #recipeMeasure="ngModel">
+
+  <button 
+    type="submit" 
+    *ngIf="therecipeName && therecipeAmount && therecipeMeasure"
+    (click)='addRecipe(recipeName,recipeAmount,recipeMeasure)' 
+    class="btn btn-primary">Tambahkan</button>
+</div>
+<br/><br/>
+<ol class="list-group">
+  <li
+    class="list-group-item justify-content-between"
+    *ngFor="let recipe of recipes; index as i">
+    {{ recipe.name }}
+     <span class="badge badge-default badge-pill">{{ recipe.amount }} {{ recipe.measure }} </span>
+     &nbsp;&nbsp; <button (click)="deleteRecipe(i)" class="btn btn-sm btn-danger"> x </button>
+  </li>
+</ol>
+<br/>
+<hr>
+<br/>
+<h5>Langkah Memasak</h5>
+<br/>
+<div class="form-group">
+    <textarea class="form-control" [(ngModel)]='thestepDescription' id="exampleTextarea" rows="3" #stepDescription='ngModel'></textarea>
+    <br/>
+    <button 
+      *ngIf="thestepDescription"
+      (click)='addStep(stepDescription)' 
+      type="submit" 
+      class="btn btn-primary">Tambahkan</button>
+</div>
+<br/>
+<ol class="list-group">
+  <li
+    class="list-group-item justify-content-between"
+    *ngFor="let step of steps; index as i">
+    {{ step.description }}
+     &nbsp;&nbsp; <button (click)="deleteStep(i)" class="btn btn-sm btn-danger"> x </button>
+  </li>
+</ol>
+
+<br/><br/><br/><br/><br/>
+<hr/>
+<br/>
+<button class="btn btn-success" (click)='addFood()'>Simpan Resep</button>

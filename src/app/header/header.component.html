@@ -1,0 +1,36 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <div class="container">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" [routerLink]="['/home']">
+    <strong>ngUkpet</strong>
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline col-md-4 push-md-4">
+      <input class="form-control mr-sm-2" type="text" placeholder="Cari masakan">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <ul class="navbar-nav col-md-4 push-md-4 justify-content-end">
+      <li class="nav-item dropdown" ngbDropdown>
+        <a 
+          class="nav-link dropdown-toggle"
+          id="navbarDropdownMenuLink" 
+          data-toggle="dropdown" 
+          aria-haspopup="true" 
+          aria-expanded="false"
+          ngbDropdownToggle>
+          User
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Login</a>
+          <a class="dropdown-item" href="#">Masakanku</a>
+          <a class="dropdown-item" [routerLink]="['/tambah']" href="#">Tambah Masakan</a>
+          <a class="dropdown-item" href="#">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
