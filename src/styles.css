@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+.dropdown-toggle{
+    cursor: pointer;
+}
+
+.food-list{
+    max-width: 420px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+}
+.food-list__link{
+    cursor: pointer;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.food-list__link:hover{
+    background: #f9f9f9;
+}
+.food-list img{
+    max-width: 110px;
+    margin-left: auto;
+}
+.food-list__title{
+    display: block;
+    flex-grow: 1;
+    text-align: center
+}
+.food-list h4{
+    margin: 0;
+    display: inline-block;
+}
